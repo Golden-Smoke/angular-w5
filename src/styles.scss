@@ -18,6 +18,21 @@ body {
     font-size:1.125rem;
 }
 
+.container {
+    width:min(70rem,100% - 2rem);
+    margin-inline:auto;
+    margin-block:1rem;
+}
+
+// Aligning footer to always to be at the bottom
+.wrapper {
+    min-height:100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns:minmax(0,1fr);
+}
+//---------------------
+
 // Custom Flex
 
 .custom-flex {
@@ -41,6 +56,14 @@ body {
 }
 //---------------------
 
+// Custom Grid
+
+.custom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(20rem,100% - 2rem),1fr));
+    isolation: isolate;
+    gap:1.5rem;
+}
 // Gradient Hover Effect
 
 .gradient-hover-effect { 
@@ -63,9 +86,3 @@ body {
     background: linear-gradient(rgb(50, 165, 203),blue);
 }
 //---------------------
-
-.container {
-    width:min(70rem,100% - 2rem);
-    margin-inline:auto;
-    margin-block:1rem;
-}
