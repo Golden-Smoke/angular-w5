@@ -1,15 +1,19 @@
 <div class="posts">
     @for(post of currentPosts; track $index) {
-        <div class="post">
-            <h2>{{post.title}}</h2>
-            <p>{{post.body}}</p>
-        </div>
+        <app-post
+            [postId]="post.id" 
+            [postTitle]="post.title"
+            [postBody]="post.body">
+        </app-post>
     }
 </div>
 
 <div class="pagination">
     @for (page of pages; track $index) {
-        <span (click)="setActivePage($index)" class="page">{{$index + 1}}</span>
+        <span 
+            (click)="setActivePage($index)"
+            [class]="'page ' + (activePage === $index ? 'active' : '')"
+        >{{$index + 1}}</span>
     }
 </div>
 

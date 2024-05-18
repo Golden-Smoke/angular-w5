@@ -1,8 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PostComponent } from '../post/post.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PostApiService } from '../services/post.api';
 
-type Post = {
+export type Post = {
+  id: number | string,
   title: string,
   body: string
 }
@@ -10,7 +12,7 @@ type Post = {
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [PostComponent,HttpClientModule],
+  imports: [PostComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })
@@ -23,12 +25,12 @@ export class PostListComponent implements OnInit {
 
   currentPosts: Post[] = [];
 
-  postService = inject(HttpClient);
+  postService = inject(PostApiService);
 
   ngOnInit(): void {
-    this.postService.get("https://jsonplaceholder.typicode.com/posts")
+    this.postService.getAllPosts()
     .subscribe((data: any) => {
-      console.log(data)
+      
        this.posts = data;
        this.pages = Array(Math.floor(this.posts.length / this.postsPerPage))
                     .fill(1);

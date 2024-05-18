@@ -1,1 +1,6 @@
-<p>post works!</p>
+<a [routerLink]="'/posts/' + postId">
+    <div class="post gradient-hover-effect">
+        <h2 class="post-title">{{postTitle}}</h2>
+        <p class="post-body">{{postBody}}</p>
+    </div>
+</a>

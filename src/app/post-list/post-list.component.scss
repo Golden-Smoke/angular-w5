@@ -1,4 +1,26 @@
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(20rem,100% - 2rem),1fr));
+    isolation: isolate;
+    gap:1.5rem;
+}
+
 .pagination {
     display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap:1rem;
+    margin-block:2.5rem;
+}
+
+.page {
+    display: block;
+    padding:.8em;
+    background:#dfdfdf;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.page.active {
+    background:linear-gradient(rgb(50, 165, 203),blue);
+    color:#fff;
 }

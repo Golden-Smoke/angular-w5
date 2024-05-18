@@ -9,9 +9,20 @@
     isolation: isolate;
 }
 
+h1 {
+    color:transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
 #wave {
     position: absolute;
     width:100%;
-    bottom:-2%;
+    bottom:-1%;
     left:0;
+}
+
+@media screen and (max-width:1024px) {
+    .hero {
+        min-height: 75vh;
+    }
 }
